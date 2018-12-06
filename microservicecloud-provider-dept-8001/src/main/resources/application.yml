@@ -27,4 +27,5 @@ eureka:
     service-url: #客户端注册进eureka服务列表内
       defaultZone: http://localhost:7001/eureka
   instance:
-    instance-id: microservicecloud-dept8001 #主机名称:服务名称修改(含有不必要的主机名)
+    instance-id: microservicecloud-dept8001 #主机名称:服务名称修改(含有不必要的主机名)-->自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
