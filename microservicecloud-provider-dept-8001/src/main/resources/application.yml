@@ -29,3 +29,10 @@ eureka:
   instance:
     instance-id: microservicecloud-dept8001 #主机名称:服务名称修改(含有不必要的主机名)-->自定义服务名称信息
     prefer-ip-address: true #访问路径可以显示IP地址
+
+#结合springboot的actuator（监控），用于eureka中每个服务的信息展示
+info:
+  app.name: carpoor-microservicecloud
+  company.name: Carpoor
+  build.artifactId: $project.artifactId$  #获取了maven中pom.xml文件中的变量（暂时未知其他的获取方式）
+  build.version: $project.version$

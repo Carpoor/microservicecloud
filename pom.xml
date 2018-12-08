@@ -63,6 +63,36 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<!--
+		该插件使得配置文件可以使用变量，以$符号开始，以$符号结束，中间为可获取信息的变量
+		见microservicecloud-provider-dept-8001项目中的application.yml
+		info:
+		  app.name: carpoor-microservicecloud
+		  company.name: Carpoor
+		  build.artifactId: $project.artifactId$   #获取了maven中pom.xml文件中的变量（暂时未知其他的获取方式）
+		  build.version: $project.version$
+	-->
+	<build>
+	   <finalName>microservicecloud</finalName>
+	   <resources>
+	     <resource>
+	       <directory>src/main/resources</directory>
+	       <filtering>true</filtering>
+	     </resource>
+	   </resources>
+	   <plugins>
+	     <plugin>
+	       <groupId>org.apache.maven.plugins</groupId>
+	       <artifactId>maven-resources-plugin</artifactId>
+	       <configuration>
+	         <delimiters>
+	          <delimit>$</delimit>
+	         </delimiters>
+	       </configuration>
+	     </plugin>
+	   </plugins>
+	  </build>
+  
 	<modules>
 		<module>microservicecloud-api</module>
 		<module>microservicecloud-provider-dept-8001</module>

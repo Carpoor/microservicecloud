@@ -15,6 +15,20 @@
 			<artifactId>microservicecloud-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<!-- 
+		actuator监控信息完善 ，加入该监控，eureka的服务信息页面，xxx:port/info页面才能访问
+		配置文件配置info，即为要展示的内容
+		见microservicecloud-provider-dept-8001项目中的application.yml
+		info:
+		  app.name: carpoor-microservicecloud
+		  company.name: Carpoor
+		  build.artifactId: $project.artifactId$   #获取了maven中pom.xml文件中的变量（暂时未知其他的获取方式）
+		  build.version: $project.version$
+		-->
+	   <dependency>
+	     <groupId>org.springframework.boot</groupId>
+	     <artifactId>spring-boot-starter-actuator</artifactId>
+	   </dependency>
 		<!-- 将微服务provider侧注册进eureka -->
 	   <dependency>
 	     <groupId>org.springframework.cloud</groupId>
