@@ -25,7 +25,9 @@ spring:
 eureka: 
   client:
     service-url: #客户端注册进eureka服务列表内
-      defaultZone: http://localhost:7001/eureka
+      #defaultZone: http://localhost:7001/eureka
+      #eureka集群，需要将client注册到所有的eureka服务中，这样可以保证一个服务挂了，其他服务还有该client的信息，还可以继续的进行服务
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
   instance:
     instance-id: microservicecloud-dept8001 #主机名称:服务名称修改(含有不必要的主机名)-->自定义服务名称信息
     prefer-ip-address: true #访问路径可以显示IP地址

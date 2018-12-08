@@ -1,5 +1,5 @@
 server:
-  port: 7001
+  port: 7002
 
 eureka:
 #===========自我保护模式
@@ -14,14 +14,14 @@ eureka:
 #==========
   instance:
     #hostname: localhost #eureka服务端的实例名称
-    hostname: eureka7001.com #eureka服务端的实例名称。因为部署eureka服务集群，所以需要使用对应的域名来区分，localhost不适合
+    hostname: eureka7002.com #eureka服务端的实例名称。因为部署eureka服务集群，所以需要使用对应的域名来区分，localhost不适合
   client:
     register-with-eureka: false #false表示不向注册中心注册自己。
     fetch-registry: false #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
     service-url:
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
       #eureka服务集群-->该eureka服务注册到另外的其他eureka中，无需注册到自己的服务中
-      defaultZone: http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7003.com:7003/eureka
       #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址。 这儿使用了变量取值
 # 1、关掉热部署
 # 2、手动重启一下这个热部署的微服务,在下一次热部署(自动重启)前不会出现重复注册的问题了 
