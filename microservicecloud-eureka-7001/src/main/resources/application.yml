@@ -20,4 +20,11 @@ eureka:
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
       #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址。 这儿使用了变量取值
-      
+# 1、关掉热部署
+# 2、手动重启一下这个热部署的微服务,在下一次热部署(自动重启)前不会出现重复注册的问题了 
+spring:
+  devtools:
+    restart:
+      enabled: false
+
+     
