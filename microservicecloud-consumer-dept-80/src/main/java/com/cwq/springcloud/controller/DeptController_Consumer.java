@@ -44,4 +44,13 @@ public class DeptController_Consumer {
 	public List<Dept> list() {
 		return restTemplate.getForObject(REST_URL_PREFIX+"/dept/list", List.class);
 	}
+	/**
+	 * 远程调用，暴露给前端服务列表，这样前端就可以知道有哪些服务在运行
+	 * 因为eureka的网址一般只有内部才能访问
+	 * @return
+	 */
+	@RequestMapping(value="/consumer/dept/discovery")
+	public Object discovery() {
+		return restTemplate.getForObject(REST_URL_PREFIX+"/dept/discovery", Object.class);
+	}
 }
