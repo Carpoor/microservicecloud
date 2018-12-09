@@ -2,8 +2,10 @@ package com.cwq.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
+@EnableEurekaClient//开启eureka服务
 public class DeptConsumer80_App {
 
 	public static void main(String[] args) {

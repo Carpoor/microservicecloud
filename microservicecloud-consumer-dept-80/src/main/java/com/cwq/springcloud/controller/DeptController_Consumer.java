@@ -14,7 +14,9 @@ import com.cwq.springcloud.entities.Dept;
 @RestController
 public class DeptController_Consumer {
 
-	private static final String REST_URL_PREFIX = "http://localhost:8001";
+	//private static final String REST_URL_PREFIX = "http://localhost:8001";
+	//使用ribbon，则用服务名进行交互（一个服务名可以指定多个机器上的相同服务，ribbon通过负载均衡算法选择一个服务）
+	private static final String REST_URL_PREFIX = "http://MICROSERVICECLOUD-DEPT";
 	
 	/**
 	 * spring提供用于rest风格的http请求操作类
