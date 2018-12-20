@@ -14,12 +14,12 @@ import com.netflix.loadbalancer.RandomRule;
 public class MySelfRule {
 
 	/**
-	 * 将默认的轮询算法改为随机算法
+	 * 将默认的轮询算法改为自定义算法
 	 * @return
 	 */
 	@Bean
 	public IRule myRule() {
-		return new RandomRule();
+		return new MyRoundRobinRule();
 	}
 	
 }
