@@ -15,6 +15,10 @@ import com.cwq.springcloud.service.DeptClientService;
 @RestController
 public class DeptController_Consumer {
 
+	/**
+	 * 使用feign，可以面对接口编程，
+	 * 通过Feign直接找到服务接口，由于在进行服务调用的时候融合了Ribbon技术，所以也支持负载均衡作用。
+	 */
 	@Autowired
 	private DeptClientService service;
 	
