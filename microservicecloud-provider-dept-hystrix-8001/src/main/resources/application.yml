@@ -1,0 +1,40 @@
+server:
+  port: 8001
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml  # mybatis配置文件所在路径
+  type-aliases-package: com.cwq.springcloud.entities  # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/*.xml # mapper映射文件
+  
+spring:
+  application:
+    name: microservicecloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  # 当前数据源操作类型
+    driver-class-name:  org.gjt.mm.mysql.Driver # mysql驱动包
+    url:  jdbc:mysql://localhost:3306/cloudDB01 # 数据库名称
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5 # 数据库连接池的最小维持连接数
+      initial-size:   5 # 初始化连接数
+      max-total:  5 # 最大连接数
+      max-wait-millis:  200 # 等待连接获取的最大超时时间
+      
+eureka: 
+  client:
+    service-url: #客户端注册进eureka服务列表内
+      #defaultZone: http://localhost:7001/eureka
+      #eureka集群，需要将client注册到所有的eureka服务中，这样可以保证一个服务挂了，其他服务还有该client的信息，还可以继续的进行服务
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: microservicecloud-dept8001-hystrix #主机名称:服务名称修改(含有不必要的主机名)-->自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+
+#结合springboot的actuator（监控），用于eureka中每个服务的信息展示
+info:
+  app.name: carpoor-microservicecloud
+  company.name: Carpoor
+  build.artifactId: $project.artifactId$  #获取了maven中pom.xml文件中的变量（暂时未知其他的获取方式）
+  build.version: $project.version$
