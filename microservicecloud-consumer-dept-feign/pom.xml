@@ -7,6 +7,10 @@
   </parent>
   <artifactId>microservicecloud-consumer-dept-feign</artifactId>
   <dependencies>
+  <dependency>
+     <groupId>org.springframework.cloud</groupId>
+     <artifactId>spring-cloud-starter-feign</artifactId>
+   </dependency>
    <dependency><!-- 自己定义的api -->
      <groupId>com.cwq.springcloud</groupId>
      <artifactId>microservicecloud-api</artifactId>

@@ -1,6 +1,9 @@
 server:
   port: 80
-  
+#需要开启feign.hystrix，服务降级才能生效
+feign: 
+  hystrix: 
+    enabled: true 
   
 eureka:
   client:

@@ -14,7 +14,8 @@ import com.cwq.springcloud.entities.Dept;
  * @date 2018年12月24日
  */
 //指定对应的服务，即可面对接口编程
-@FeignClient(value = "MICROSERVICECLOUD-DEPT")
+//@FeignClient(value = "MICROSERVICECLOUD-DEPT")
+@FeignClient(value = "MICROSERVICECLOUD-DEPT", fallbackFactory=DeptClientServiceFallBackFactory.class)
 public interface DeptClientService {
 
 	//这儿的路径需要和provider的路径一样
