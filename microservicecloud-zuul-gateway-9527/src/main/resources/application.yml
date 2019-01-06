@@ -6,6 +6,7 @@ spring:
     name: microservicecloud-zuul-gateway
 
 zuul: 
+  prefix: /cwq
   ignored-services: microservicecloud-dept
   routes: 
     mydept1.serviceId: microservicecloud-dept
